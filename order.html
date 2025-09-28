@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Order Form - Savora</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Place Your Order</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="order.html">Order Now</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Order Form</h2>
+    <form action="https://formsubmit.co/savora.001@outlook.com" method="POST">
+      <label>Name:</label><br>
+      <input type="text" name="name" required><br><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br><br>
+      <label>Product:</label><br>
+      <input type="text" name="product" required><br><br>
+      <label>Quantity:</label><br>
+      <input type="number" name="quantity" required><br><br>
+      <label>Address:</label><br>
+      <textarea name="address" required></textarea><br><br>
+      <input type="hidden" name="_next" value="https://savora-soap.github.io/savora/thankyou.html">
+      <button type="submit">Submit Order</button>
+    </form>
+  </main>
+</body>
+</html>
