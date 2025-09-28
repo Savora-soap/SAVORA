@@ -39,7 +39,7 @@
 
         <div class="form-field">
           <label>Order summary (auto-filled)</label>
-          <textarea id="order_details" name="order_details" rows="6" readonly></textarea>
+          <textarea id="order_details" name="order_details" rows="10" readonly></textarea>
         </div>
 
         <input type="hidden" name="_next" value="https://savora-soap.github.io/savora/thankyou.html">
@@ -51,13 +51,34 @@
   </div>
 
 <script>
+function populateCheckoutForm(){
+  const raw = localStorage.getItem('savora_checkout_cart');
+  const el = document.getElementById('order_details');
+  if (!el) return;
+  if (!raw) {
+    el.value = 'Cart is empty';
+    return;
+  }
+  const cart = JSON.parse(raw);
+  let summary = '';
+  let total = 0;
+  cart.forEach(p=>{
+    summary += `${p.name} (${p.variant}) — $${p.price.toFixed(2)} x ${p.qty}\n`;
+    total += p.price*p.qty;
+  });
+  const deliveryFee = 4.00;
+  const finalTotal = total + deliveryFee;
+  summary += `\nProducts Total: $${total.toFixed(2)}`;
+  summary += `\nDelivery Fee: $${deliveryFee.toFixed(2)}`;
+  summary += `\nFinal Total: $${finalTotal.toFixed(2)}`;
+  el.value = summary;
+}
+
 function prepareCartSummary(){
-  // ensure populateCheckoutForm already ran
   populateCheckoutForm();
-  // allow form submission to continue; Formsubmit will receive the form fields
-  // After submission we may want to clear cart
   setTimeout(function(){ localStorage.removeItem('savora_cart_v1'); localStorage.removeItem('savora_checkout_cart'); }, 1000);
 }
+
 window.addEventListener('DOMContentLoaded', populateCheckoutForm);
 </script>
 
