@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout - Savora</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Fill your details</h2>
+      <form action="https://formsubmit.co/savora.001@outlook.com" method="POST" onsubmit="prepareCartSummary()">
+        <div class="form-field">
+          <label>Full name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="text" name="phone" required>
+        </div>
+        <div class="form-field">
+          <label>Delivery address</label>
+          <textarea name="address" rows="3" required></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Order summary (auto-filled)</label>
+          <textarea id="order_details" name="order_details" rows="6" readonly></textarea>
+        </div>
+
+        <input type="hidden" name="_next" value="https://savora-soap.github.io/savora/thankyou.html">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="btn">Place Order</button>
+      </form>
+    </section>
+  </div>
+
+<script>
+function prepareCartSummary(){
+  // ensure populateCheckoutForm already ran
+  populateCheckoutForm();
+  // allow form submission to continue; Formsubmit will receive the form fields
+  // After submission we may want to clear cart
+  setTimeout(function(){ localStorage.removeItem('savora_cart_v1'); localStorage.removeItem('savora_checkout_cart'); }, 1000);
+}
+window.addEventListener('DOMContentLoaded', populateCheckoutForm);
+</script>
+
+</body>
+</html>

@@ -1,32 +1,108 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Savora - Shop</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="cart.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Our Soaps</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Shop</a> |
-      <a href="order.html">Order Now</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Products</h2>
-    <div class="product">
-      <img src="soap1.jpg" alt="Lavender Soap" width="200">
-      <h3>Lavender Soap</h3>
-      <p>$5.00</p>
-    </div>
-    <div class="product">
-      <img src="soap2.jpg" alt="Rose Soap" width="200">
-      <h3>Rose Soap</h3>
-      <p>$6.00</p>
-    </div>
-  </main>
+<header>
+<h1>Shop - Savora</h1>
+<nav>
+<a href="index.html">Home</a> |
+<a href="products.html">Shop</a> |
+<a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+</nav>
+</header>
+<div class="container">
+<h2 style="text-align:center;">Products</h2>
+<div class="products-grid">
+
+<div class="product-card" id="soap-bar">
+<img id="soap-bar_img" src="soap-bar_Watermelon.jpg" alt="Soap Bar">
+<h3>Soap Bar</h3>
+<p class="small">Price: $5.00</p>
+<select id="soap-bar_select" class="select-variant" onchange="onVariantChange('soap-bar')">
+<option value="Watermelon" data-img="soap-bar_Watermelon.jpg">Watermelon</option><option value="Lavender" data-img="soap-bar_Lavender.jpg">Lavender</option><option value="Rose" data-img="soap-bar_Rose.jpg">Rose</option><option value="Charcoal" data-img="soap-bar_Charcoal.jpg">Charcoal</option><option value="Oatmeal" data-img="soap-bar_Oatmeal.jpg">Oatmeal</option></select>
+
+<div style="margin-top:8px;">
+<label>Quantity:</label>
+<input type="number" id="soap-bar_qty" value="1" min="1" style="width:70px; padding:6px; margin-left:6px;">
+</div>
+<button class="add-cart" onclick="addSelectedToCart('soap-bar','Soap Bar',5.0)">Add to Cart</button>
+</div>
+
+<div class="product-card" id="flower-soap">
+<img id="flower-soap_img" src="flower-soap_Rose.jpg" alt="Flower Soap">
+<h3>Flower Soap</h3>
+<p class="small">Price: $6.00</p>
+<select id="flower-soap_select" class="select-variant" onchange="onVariantChange('flower-soap')">
+<option value="Rose" data-img="flower-soap_Rose.jpg">Rose</option><option value="Jasmine" data-img="flower-soap_Jasmine.jpg">Jasmine</option><option value="Lavender" data-img="flower-soap_Lavender.jpg">Lavender</option><option value="Chamomile" data-img="flower-soap_Chamomile.jpg">Chamomile</option><option value="Lily" data-img="flower-soap_Lily.jpg">Lily</option></select>
+
+<div style="margin-top:8px;">
+<label>Quantity:</label>
+<input type="number" id="flower-soap_qty" value="1" min="1" style="width:70px; padding:6px; margin-left:6px;">
+</div>
+<button class="add-cart" onclick="addSelectedToCart('flower-soap','Flower Soap',6.0)">Add to Cart</button>
+</div>
+
+<div class="product-card" id="loafs-soap">
+<img id="loafs-soap_img" src="loafs-soap_Olive.jpg" alt="Loafs Soap">
+<h3>Loafs Soap</h3>
+<p class="small">Price: $7.00</p>
+<select id="loafs-soap_select" class="select-variant" onchange="onVariantChange('loafs-soap')">
+<option value="Olive" data-img="loafs-soap_Olive.jpg">Olive</option><option value="Honey" data-img="loafs-soap_Honey.jpg">Honey</option><option value="Coffee" data-img="loafs-soap_Coffee.jpg">Coffee</option><option value="Cocoa" data-img="loafs-soap_Cocoa.jpg">Cocoa</option><option value="Milk" data-img="loafs-soap_Milk.jpg">Milk</option></select>
+
+<div style="margin-top:8px;">
+<label>Quantity:</label>
+<input type="number" id="loafs-soap_qty" value="1" min="1" style="width:70px; padding:6px; margin-left:6px;">
+</div>
+<button class="add-cart" onclick="addSelectedToCart('loafs-soap','Loafs Soap',7.0)">Add to Cart</button>
+</div>
+
+<div class="product-card" id="bathbomb">
+<img id="bathbomb_img" src="bathbomb_Lavender.jpg" alt="Bathbomb">
+<h3>Bathbomb</h3>
+<p class="small">Price: $4.50</p>
+<select id="bathbomb_select" class="select-variant" onchange="onVariantChange('bathbomb')">
+<option value="Lavender" data-img="bathbomb_Lavender.jpg">Lavender</option><option value="Rose" data-img="bathbomb_Rose.jpg">Rose</option><option value="Lemon" data-img="bathbomb_Lemon.jpg">Lemon</option><option value="Vanilla" data-img="bathbomb_Vanilla.jpg">Vanilla</option><option value="Coconut" data-img="bathbomb_Coconut.jpg">Coconut</option></select>
+
+<div style="margin-top:8px;">
+<label>Quantity:</label>
+<input type="number" id="bathbomb_qty" value="1" min="1" style="width:70px; padding:6px; margin-left:6px;">
+</div>
+<button class="add-cart" onclick="addSelectedToCart('bathbomb','Bathbomb',4.5)">Add to Cart</button>
+</div>
+
+<div class="product-card" id="characters-soap">
+<img id="characters-soap_img" src="characters-soap_Unicorn.jpg" alt="Characters Soap">
+<h3>Characters Soap</h3>
+<p class="small">Price: $8.00</p>
+<select id="characters-soap_select" class="select-variant" onchange="onVariantChange('characters-soap')">
+<option value="Unicorn" data-img="characters-soap_Unicorn.jpg">Unicorn</option><option value="Heart" data-img="characters-soap_Heart.jpg">Heart</option><option value="Star" data-img="characters-soap_Star.jpg">Star</option><option value="Flower" data-img="characters-soap_Flower.jpg">Flower</option><option value="Animal" data-img="characters-soap_Animal.jpg">Animal</option></select>
+
+<div style="margin-top:8px;">
+<label>Quantity:</label>
+<input type="number" id="characters-soap_qty" value="1" min="1" style="width:70px; padding:6px; margin-left:6px;">
+</div>
+<button class="add-cart" onclick="addSelectedToCart('characters-soap','Characters Soap',8.0)">Add to Cart</button>
+</div>
+
+</div></div>
+<script>
+function onVariantChange(prodId){
+  const sel = document.getElementById(prodId + '_select');
+  const img = sel.options[sel.selectedIndex].getAttribute('data-img');
+  document.getElementById(prodId + '_img').src = img;
+}
+function addSelectedToCart(prodId, name, price){
+  const sel = document.getElementById(prodId + '_select');
+  const variant = sel.value;
+  const img = sel.options[sel.selectedIndex].getAttribute('data-img');
+  const qty = parseInt(document.getElementById(prodId + '_qty').value) || 1;
+  addToCart({id:prodId, name:name, variant:variant, price:price, qty:qty, img:img});
+}
+</script>
 </body>
 </html>

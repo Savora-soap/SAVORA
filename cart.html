@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cart - Savora</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="cart.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+    </nav>
+  </header>
+  <div class="container">
+    <section class="cart-list">
+      <div id="cart-items"></div>
+      <div class="total">Total: <span id="cart-total">$0.00</span></div>
+      <div style="text-align:center; margin-top:12px;">
+        <button id="checkout-btn" class="btn" onclick="goToCheckout()">Checkout</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
