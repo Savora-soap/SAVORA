@@ -15,14 +15,18 @@
 <a href="cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
 </nav>
 </header>
-<div class="container">
+<div id="cartDrawer" class="cart-drawar">
+<div class="cart-header">
 <h2 style="text-align:center;">Products</h2>
-<div class="products-grid">
-
+<button onclick="closeCart()">x</button> 
+</div>
+<div id="cartItems" class="cart-itmes"></div>
+<div class="cart-footer">
 <div class="product-card" id="soap-bar">
 <img id="soap-bar_img" src="soap-bar_Watermelon.jpg" alt="Soap Bar">
 <h3>Soap Bar</h3>
-<p class="small">Price: $5.00</p>
+<p class="cartTotal">Price: $5.00</p>
+<a id="checkoutBtn" CLASS="btn" href="#"
 <select id="soap-bar_select" class="select-variant" onchange="onVariantChange('soap-bar')">
 <option value="Watermelon" data-img="soap-bar_Watermelon.jpg">Watermelon</option><option value="Crimson Bloom" data-img="Crimson Bloom.jpg">Lavender</option><option value="Vanilla" data-img="Vanilla.jpg">Rose</option><option value="Midnight" data-img="Midnight.jpg">Charcoal</option><option value="Oatmeal" data-img="soap-bar_Oatmeal.jpg">Oatmeal</option></select>
 
