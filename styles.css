@@ -1,11 +1,12 @@
 
 /* styles.css - Savora mini ecommerce */
 body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; color:#222;}
-header { background:#88c9a1; color:#fff; padding:14px 20px; text-align:center;}
+header { background:#88c9a1; color:#light purle; padding:14px 20px; text-align:center;}
 nav a { color:#fff; margin:0 8px; text-decoration:none; font-weight:600;}
 .container { max-width:1000px; margin:20px auto; padding:0 15px;}
-.hero { text-align:center; padding:30px 0;}
-.btn { background:#88c9a1; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; display:inline-block;}
+.hero { text-align:center; padding:40px 0;}
+.hero-img{width:80%border-radius: 10px;}
+.btn { background:#88c9a1; color:#f5ib3; /* beige */  padding:12px 20px; color: black;font-weight: bold;border-radius:5px;positin:absolute;top:50%;left:50%;transfor: translate(-50%,-50%);} text-decoration:none; display:inline-block;}
 .products-grid { display:flex; flex-wrap:wrap; gap:18px; justify-content:center;}
 .product-card { width:260px; border:1px solid #eee; padding:12px; border-radius:8px; text-align:center; background:#fafafa;}
 .product-card img { width:220px; height:160px; object-fit:cover; border-radius:6px; }
